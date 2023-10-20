@@ -1,4 +1,4 @@
-package com.example.observer;
+package com.example;
 
 public class App {
     public static void main(String[] args) throws Exception {
