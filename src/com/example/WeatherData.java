@@ -4,16 +4,10 @@ import com.example.display.CurrentConditionsDisplay;
 import com.example.display.Displayable;
 import com.example.display.ForecastDisplay;
 import com.example.display.StatisticsDisplay;
-import com.example.sensor.HumiditySensor;
-import com.example.sensor.PressureSensor;
-import com.example.sensor.Sensor;
-import com.example.sensor.TemperatureSensor;
 
 public class WeatherData {
 
-    Sensor tempSensor = new TemperatureSensor();
-    Sensor pressureSensor = new PressureSensor();
-    Sensor humiditySensor = new HumiditySensor();
+    WeatherStation weatherStation = new WeatherStation();
 
     // display
     Displayable currentConditionsDisplay = new CurrentConditionsDisplay();
@@ -31,15 +25,18 @@ public class WeatherData {
     }
 
     public float getTemperature() {
-        return tempSensor.getValue();
+        float temp = /* codes for periodically pulling data */ 0.1f;
+        return temp;
     }
 
     public float getHumidity() {
-        return humiditySensor.getValue();
+        float humidity = /* codes for periodically pulling data */ 0.1f;
+        return humidity;
     }
 
     public float getPressure() {
-        return pressureSensor.getValue();
+        float pressure = /* codes for periodically pulling data */ 0.1f;
+        return pressure;
     }
 
 }
