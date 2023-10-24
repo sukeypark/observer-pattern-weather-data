@@ -1,19 +1,15 @@
 package com.example;
 
-import java.util.ArrayList;
-import java.util.List;
-import com.example.observer.Observer;
+import java.util.Observable;
 
-public class WeatherData implements Subject {
-
-    private List<Observer> observers = new ArrayList<>();
-
+public class WeatherData extends Observable {
     // states
     private float temperature;
     private float humidity;
     private float pressure;
 
     public void measurementsChanged() {
+        setChanged();
         notifyObservers();
     }
 
@@ -24,21 +20,16 @@ public class WeatherData implements Subject {
         measurementsChanged();
     }
 
-    @Override
-    public void registerObserver(Observer o) {
-        observers.add(o);
+    public float getTemperature() {
+        return temperature;
     }
 
-    @Override
-    public void removeObserver(Observer o) {
-        observers.remove(o);
+    public float getHumidity() {
+        return humidity;
     }
 
-    @Override
-    public void notifyObservers() {
-        for (Observer o : observers) {
-            o.update(temperature, humidity, pressure);
-        }
+    public float getPressure() {
+        return pressure;
     }
 
 }

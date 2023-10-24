@@ -1,23 +1,30 @@
 package com.example.observer;
 
-import com.example.Subject;
+import java.util.Observable;
+import java.util.Observer;
+
+import com.example.WeatherData;
 
 public class ForecastDisplay implements Observer {
 
-    private Subject weatherData;
+    private Observable observable;
     private float temp;
     private float humidity;
     private float pressure;
 
-    public ForecastDisplay(Subject weatherData) {
-        this.weatherData = weatherData;
+    public ForecastDisplay(Observable observable) {
+        this.observable = observable;
+        observable.addObserver(this);
     }
 
     @Override
-    public void update(float temp, float humidity, float pressure) {
-        this.temp = temp;
-        this.humidity = humidity;
-        this.pressure = pressure;
+    public void update(Observable o, Object arg) {
+        if (o instanceof WeatherData) {
+            WeatherData weatherData = (WeatherData) o;
+            this.temp = weatherData.getTemperature();
+            this.humidity = weatherData.getHumidity();
+            this.pressure = weatherData.getPressure();
+        }
     }
 
 }

@@ -1,8 +1,9 @@
 package com.example;
 
+import java.util.Observer;
+
 import com.example.observer.CurrentConditionsDisplay;
 import com.example.observer.ForecastDisplay;
-import com.example.observer.Observer;
 import com.example.observer.StatisticsDisplay;
 
 public class WeatherStation {
