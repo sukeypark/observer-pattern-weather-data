@@ -11,6 +11,7 @@ public class CurrentConditionsDisplay implements Observer {
 
     public CurrentConditionsDisplay(Subject weatherData) {
         this.weatherData = weatherData;
+        weatherData.registerObserver(this);
     }
 
     @Override

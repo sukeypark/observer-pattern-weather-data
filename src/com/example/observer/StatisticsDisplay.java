@@ -11,6 +11,7 @@ public class StatisticsDisplay implements Observer {
 
     public StatisticsDisplay(Subject weatherData) {
         this.weatherData = weatherData;
+        weatherData.registerObserver(this);
     }
 
     @Override

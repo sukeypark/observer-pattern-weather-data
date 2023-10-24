@@ -11,6 +11,7 @@ public class ForecastDisplay implements Observer {
 
     public ForecastDisplay(Subject weatherData) {
         this.weatherData = weatherData;
+        weatherData.registerObserver(this);
     }
 
     @Override
