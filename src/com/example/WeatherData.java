@@ -18,20 +18,11 @@ public class WeatherData implements Subject {
 
     private WeatherStation weatherStation = new WeatherStation();
 
-    // display
-    private Observer currentConditionsDisplay = new CurrentConditionsDisplay();
-    private Observer forecastDisplay = new ForecastDisplay();
-    private Observer statisticsDisplay = new StatisticsDisplay();
-
     public void measurementsChanged() {
 
-        float temp = getTemperature();
+        float temperature = getTemperature();
         float humidity = getHumidity();
         float pressure = getPressure();
-
-        currentConditionsDisplay.update(temp, humidity, pressure);
-        forecastDisplay.update(temp, humidity, pressure);
-        statisticsDisplay.update(temp, humidity, pressure);
     }
 
     public float getTemperature() {
