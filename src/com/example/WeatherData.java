@@ -2,10 +2,7 @@ package com.example;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.example.observer.CurrentConditionsDisplay;
-import com.example.observer.ForecastDisplay;
 import com.example.observer.Observer;
-import com.example.observer.StatisticsDisplay;
 
 public class WeatherData implements Subject {
 
@@ -16,28 +13,15 @@ public class WeatherData implements Subject {
     private float humidity;
     private float pressure;
 
-    private WeatherStation weatherStation = new WeatherStation();
-
     public void measurementsChanged() {
-
-        float temperature = getTemperature();
-        float humidity = getHumidity();
-        float pressure = getPressure();
+        notifyObservers();
     }
 
-    public float getTemperature() {
-        float temp = /* codes for periodically pulling data */ 0.1f;
-        return temp;
-    }
-
-    public float getHumidity() {
-        float humidity = /* codes for periodically pulling data */ 0.1f;
-        return humidity;
-    }
-
-    public float getPressure() {
-        float pressure = /* codes for periodically pulling data */ 0.1f;
-        return pressure;
+    public void setMeasurements(float temperature, float humidity, float pressure) {
+        this.temperature = temperature;
+        this.humidity = humidity;
+        this.pressure = pressure;
+        measurementsChanged();
     }
 
     @Override
